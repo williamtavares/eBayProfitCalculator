@@ -1,0 +1,71 @@
+html {
+    min-width: 320px;
+    background-color: #ececec;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.5em;
+    color: #6d6d6d;
+}
+
+.section-headers {
+    margin: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: .5em;
+    color: darkred;
+}
+
+label {
+    display: inline-block;
+    text-align: right;
+    width: 28%;
+    padding-right: 3%;
+    color: #383838;
+}
+
+input {
+    display: inline-block;
+    padding: .5em;
+    width: 60%;
+    border-radius: 0.2em;
+    border: 1px solid lightgrey;
+}
+
+div#fees-container {
+    background-color: #ffffff;
+    border: 1px solid darkred;
+    border-radius: 0.8em;
+    padding: .5em;
+    padding-bottom: 1.5em;
+}
+
+div#fees-container label {
+    width: 27%;
+    padding-right: 2%;
+}
+
+div#fees-container input {
+    width: 64%;
+}
+
+div.input-container {
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+
+p.note {
+    text-align: center;
+    color: gray;
+    margin: 0;
+}
+
+p#profit {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    font-size: 2em;
+    margin: 0;
+    margin-bottom: .67em;
+}
