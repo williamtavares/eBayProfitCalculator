@@ -7,7 +7,10 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    <h1>eBay Profit Calculator</h1>
+    <div id="logo-container">
+        <img src="/icon128.png"/>
+    </div>
+    <div class="input-container"><label>Original Cost ($)</label><input id="original-cost" type="number" step="0.01" min="0" /></div>
     <div class="input-container"><label>Selling Price ($)</label><input id="selling-price" type="number" step="0.01" min="0" /></div>
     <h2 class="section-headers">eBay fees</h2>
     <div id="fees-container">

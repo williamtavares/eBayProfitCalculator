@@ -3,10 +3,26 @@ html {
     background-color: #ececec;
 }
 
+div#logo-container {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+div#logo-container img {
+    width: 64px;
+}
+
 h1 {
     text-align: center;
     font-size: 1.5em;
-    color: #6d6d6d;
+    color: #ffffff;
+    margin: -8px -8px 0 -8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #333333;
+    /*background: url('/colors-back.png');
+    background-repeat: no-repeat;*/
+    font-weight: normal;
 }
 
 .section-headers {
@@ -20,7 +36,7 @@ h1 {
 label {
     display: inline-block;
     text-align: right;
-    width: 28%;
+    width: 30%;
     padding-right: 3%;
     color: #383838;
 }
@@ -35,24 +51,25 @@ input {
 
 div#fees-container {
     background-color: #ffffff;
-    border: 1px solid darkred;
-    border-radius: 0.8em;
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
     padding: .5em;
     padding-bottom: 1.5em;
+    margin: 0 -8px 0 -8px;
 }
 
 div#fees-container label {
-    width: 27%;
-    padding-right: 2%;
+    width: 29%;
+    padding-right: 3%;
 }
 
 div#fees-container input {
-    width: 64%;
+    width: 59%;
 }
 
 div.input-container {
-    margin-top: 1.2em;
-    margin-bottom: 1.2em;
+    margin-top: .6em;
+    margin-bottom: .6em;
 }
 
 p.note {
@@ -63,7 +80,7 @@ p.note {
 
 p#profit {
     text-align: center;
-    color: green;
+    color: #016f01;
     font-weight: bold;
     font-size: 2em;
     margin: 0;
