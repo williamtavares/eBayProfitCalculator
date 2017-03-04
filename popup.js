@@ -35,13 +35,13 @@ function trackButtonClick(e) {
 
 
 $(document).ready(function() {
-    $("input#paypal-fee").val("2.9");
-    $("input").keyup(function() {
+    $("#ebay-profit-container input#paypal-fee").val("2.9");
+    $("#ebay-profit-container input").keyup(function() {
 
-    if (!this.value) {
+    if ($(this).val() == '') {
         $(this).val("0");
     }
-    
+
     var originalCost = 0,
         sellingPrice = 0,
         sellingFee = 0,
@@ -52,11 +52,11 @@ $(document).ready(function() {
         quantity = 0,
         profit = 0;
 
-        originalCost = parseFloat($("input#original-cost").val());
+        originalCost = parseFloat($("#ebay-profit-container input#original-cost").val());
 
-        sellingPrice = parseFloat($("input#selling-price").val());
+        sellingPrice = parseFloat($("#ebay-profit-container input#selling-price").val());
 
-        sellingFee = parseFloat($("input#selling-fee").val());
+        sellingFee = parseFloat($("#ebay-profit-container input#selling-fee").val());
         
         if(sellingFee > 0) {
             calculatedSellingFee = sellingPrice * (sellingFee/100);
@@ -65,25 +65,25 @@ $(document).ready(function() {
             }
         }
 
-        paypalFee = parseFloat($("input#paypal-fee").val());
+        paypalFee = parseFloat($("ebay-profit-container input#paypal-fee").val());
 
         if(paypalFee > 0) {
             calculatePaypalFee = (sellingPrice * (paypalFee/100)) + .3;
         }
 
-        shipping = parseFloat($("input#shipping").val());
+        shipping = parseFloat($("#ebay-profit-container input#shipping").val());
 
-        quantity = parseFloat($("input#quantity").val());
+        quantity = parseFloat($("#ebay-profit-container input#quantity").val());
 
         profit = parseFloat(((sellingPrice - (calculatedSellingFee + calculatePaypalFee) - shipping) - originalCost) * quantity).toFixed(2);
 
         if(!isNaN(profit)) {
             if(profit < 0) {
-               $("p#profit").css({color: 'darkred'}) ;
+               $("#ebay-profit-container p#profit").css({color: 'darkred'}) ;
             } else {
-               $("p#profit").css({color: '#016f01'}) ;
+               $("#ebay-profit-container p#profit").css({color: '#016f01'}) ;
             }
-            $("p#profit").text('$'+profit);
+            $("#ebay-profit-container p#profit").text('$'+profit);
         }
     });
 });
