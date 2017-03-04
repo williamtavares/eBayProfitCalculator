@@ -55,6 +55,9 @@ $(document).ready(function() {
         
         if(sellingFee > 0) {
             calculatedSellingFee = sellingPrice * (sellingFee/100);
+            if(calculatedSellingFee > 750) {
+                calculatedSellingFee = 750;
+            }
         }
 
         paypalFee = parseFloat($("input#paypal-fee").val());
