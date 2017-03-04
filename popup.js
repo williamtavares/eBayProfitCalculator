@@ -37,6 +37,11 @@ function trackButtonClick(e) {
 $(document).ready(function() {
     $("input#paypal-fee").val("2.9");
     $("input").keyup(function() {
+
+    if (!this.value) {
+        $(this).val("0");
+    }
+    
     var originalCost = 0,
         sellingPrice = 0,
         sellingFee = 0,

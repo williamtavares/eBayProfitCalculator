@@ -3,10 +3,11 @@
 
   "name": "eBay Profit Calculator",
   "description": "This extension allows you to calculate the profit from an eBay sale.",
-  "version": "1.0",
+  "version": "1.1",
   "icons": { "16": "icon16.png",
              "48": "icon48.png",
-             "128": "icon128.png" },
+             "128": "icon128.png",
+             "256": "icon256.png" },
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html",
