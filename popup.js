@@ -65,7 +65,7 @@ $(document).ready(function() {
             }
         }
 
-        paypalFee = parseFloat($("ebay-profit-container input#paypal-fee").val());
+        paypalFee = parseFloat($("#ebay-profit-container input#paypal-fee").val());
 
         if(paypalFee > 0) {
             calculatePaypalFee = (sellingPrice * (paypalFee/100)) + .3;
@@ -75,7 +75,7 @@ $(document).ready(function() {
 
         quantity = parseFloat($("#ebay-profit-container input#quantity").val());
 
-        profit = parseFloat(((sellingPrice - (calculatedSellingFee + calculatePaypalFee) - shipping) - originalCost) * quantity).toFixed(2);
+        profit = parseFloat(((sellingPrice - (calculatedSellingFee + calculatePaypalFee) - shipping) - originalCost) * quantity).toString().match(/^-?\d+(?:\.\d{0,2})?/)[0];
 
         if(!isNaN(profit)) {
             if(profit < 0) {

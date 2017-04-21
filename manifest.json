@@ -3,7 +3,10 @@
 
   "name": "eBay Profit Calculator",
   "description": "This extension allows you to calculate the profit from an eBay sale.",
-  "version": "1.2",
+  "version": "1.30",
+  "permissions": [
+    "activeTab"
+  ],
   "icons": { "16": "icon16.png",
              "48": "icon48.png",
              "128": "icon128.png",
@@ -13,9 +16,9 @@
     "default_popup": "popup.html",
     "default_title": "eBay Profit Calculator"
   },
-  "content_scripts": [ {
-    "js": [ "jquery-3.1.1.min.js", "popup.js"],
-    "matches": [ "http://*/*", "https://*/*"]
-  }],
+  "background": {
+    "scripts": ["jquery-3.1.1.min.js"],
+    "persistent": false
+  },
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }
