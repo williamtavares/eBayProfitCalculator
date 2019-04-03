@@ -38,10 +38,6 @@ $(document).ready(function() {
     $("#ebay-profit-container input#paypal-fee").val("2.9");
     $("#ebay-profit-container input").keyup(function() {
 
-    if ($(this).val() == '') {
-        $(this).val("0");
-    }
-
     var originalCost = 0,
         sellingPrice = 0,
         sellingFee = 0,
@@ -50,13 +46,19 @@ $(document).ready(function() {
         calculatePaypalFee = 0,
         shipping = 0,
         quantity = 0,
-        profit = 0;
+        profit = 0,
+        expenses = 0;
 
-        originalCost = parseFloat($("#ebay-profit-container input#original-cost").val());
+        var userInputOriginalCost = parseFloat($("#ebay-profit-container input#original-cost").val());
+        var userInputSellingPrice = parseFloat($("#ebay-profit-container input#selling-price").val());
+        var userInputSellingFee = parseFloat($("#ebay-profit-container input#selling-fee").val());
+        var userInputPaypalFee = parseFloat($("#ebay-profit-container input#paypal-fee").val());
+        var userInputShipping = parseFloat($("#ebay-profit-container input#shipping").val());
+        var userInputQuantity = parseFloat($("#ebay-profit-container input#quantity").val());
 
-        sellingPrice = parseFloat($("#ebay-profit-container input#selling-price").val());
-
-        sellingFee = parseFloat($("#ebay-profit-container input#selling-fee").val());
+        originalCost = isNaN(userInputOriginalCost) ? 0 : userInputOriginalCost;
+        sellingPrice = isNaN(userInputSellingPrice) ? 0 : userInputSellingPrice;
+        sellingFee = isNaN(userInputSellingFee) ? 0 : userInputSellingFee;
         
         if(sellingFee > 0) {
             calculatedSellingFee = sellingPrice * (sellingFee/100);
@@ -65,25 +67,31 @@ $(document).ready(function() {
             }
         }
 
-        paypalFee = parseFloat($("#ebay-profit-container input#paypal-fee").val());
+        paypalFee = isNaN(userInputPaypalFee) ? 0 : userInputPaypalFee;
 
         if(paypalFee > 0) {
             calculatePaypalFee = (sellingPrice * (paypalFee/100)) + .3;
         }
 
-        shipping = parseFloat($("#ebay-profit-container input#shipping").val());
+        shipping = isNaN(userInputShipping) ? 0 : userInputShipping;
+        quantity = isNaN(userInputQuantity) ? 0 : userInputQuantity;
+        expenses = round(parseFloat(((calculatedSellingFee + calculatePaypalFee) + shipping) * quantity), 2);
+        profit = round(parseFloat(((sellingPrice - (calculatedSellingFee + calculatePaypalFee) - shipping) - originalCost) * quantity), 2);
 
-        quantity = parseFloat($("#ebay-profit-container input#quantity").val());
-
-        profit = parseFloat(((sellingPrice - (calculatedSellingFee + calculatePaypalFee) - shipping) - originalCost) * quantity).toString().match(/^-?\d+(?:\.\d{0,2})?/)[0];
-
-        if(!isNaN(profit)) {
-            if(profit < 0) {
+        if(!isNaN(parseFloat(profit))) {
+            if(parseFloat(profit) < 0) {
                $("#ebay-profit-container p#profit").css({color: 'darkred'}) ;
             } else {
-               $("#ebay-profit-container p#profit").css({color: '#016f01'}) ;
+                $("#ebay-profit-container p#expenses").css({color: 'darkred'}) ;
+                $("#ebay-profit-container p#profit").css({color: '#016f01'}) ;
             }
+            $("#ebay-profit-container p#expenses").text('$'+expenses);                        
             $("#ebay-profit-container p#profit").text('$'+profit);
         }
     });
+
 });
+
+function round(value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+  }

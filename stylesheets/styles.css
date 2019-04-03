@@ -3,13 +3,20 @@ html {
     background-color: #ececec;
 }
 
+body#ebay-profit-container {
+    margin: 0;
+    padding-top: 1em;
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
 div#logo-container {
     text-align: center;
     margin-bottom: 1em;
 }
 
 div#logo-container img {
-    width: 64px;
+    width: 48px;
 }
 
 h1 {
@@ -26,11 +33,12 @@ h1 {
 }
 
 .section-headers {
-    margin: 0;
+    margin: 0 -8px 0 -8px;
+    padding: .2em;
     text-align: center;
-    font-size: 1.2em;
-    margin-bottom: .5em;
-    color: darkred;
+    font-size: 1.1em;
+    color: white;
+    background-color: #000000;
 }
 
 label {
@@ -49,10 +57,14 @@ input {
     border: 1px solid lightgrey;
 }
 
-div#fees-container {
+div#calculation-container {
+    padding-bottom: .75em !important;
+    padding-top: .75em !important;
+}
+
+div#fees-container, div#calculation-container {
     background-color: #ffffff;
     border-top: 1px solid #bbbbbb;
-    border-bottom: 1px solid #bbbbbb;
     padding: .5em;
     padding-bottom: 1.5em;
     margin: 0 -8px 0 -8px;
@@ -61,6 +73,10 @@ div#fees-container {
 div#fees-container label {
     width: 29%;
     padding-right: 3%;
+}
+
+div#calculation-container label {
+    margin-bottom: .3em;
 }
 
 div#fees-container input {
@@ -78,11 +94,21 @@ p.note {
     margin: 0;
 }
 
-p#profit {
+p#revenue, p#expenses, p#profit {
     text-align: center;
-    color: #016f01;
     font-weight: bold;
     font-size: 2em;
     margin: 0;
-    margin-bottom: .67em;
+}
+
+p#revenue {
+    color: darkblue;
+}
+
+p#expenses {
+    color: darkred;
+}
+
+p#profit {
+    color: #016f01;
 }
