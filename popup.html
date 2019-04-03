@@ -10,9 +10,9 @@
     <div id="logo-container">
         <img src="/icon128.png"/>
     </div>
-    <div class="input-container"><label>Original Cost ($)</label><input id="original-cost" type="number" step="0.01" min="0" value="0"/></div>
-    <div class="input-container"><label>Selling Price ($)</label><input id="selling-price" type="number" step="0.01" min="0" value="0"/></div>
-    <h2 class="section-headers">eBay fees</h2>
+    <div class="input-container"><label>Original Cost ($)</label><input id="original-cost" type="number" ></div>
+    <div class="input-container"><label>Selling Price ($)</label><input id="selling-price" type="number" /></div>
+    <h2 class="section-headers">Fees</h2>
     <div id="fees-container">
         <div class="input-container"><label>Final Value (%)</label>
             <input id="selling-fee" type="number" step="any" min="0" value="10"/>
@@ -23,6 +23,7 @@
         </div>
         <p class="note" value=".3">$.3 is added to every paypal fee</p>
     </div>
+    <h2 class="section-headers">Shipping & Quantity</h2>
     <div class="input-container">
         <label>Shipping Cost ($)</label>
         <input id="shipping" type="number" step="0.01" min="0" value="0"/>
@@ -31,6 +32,9 @@
         <label>Quantity</label>
         <input id="quantity" type="number" step="1" min="0" value="1" />
     </div>
-    <label>Profit</label><p id="profit">$0</p>
+    <div id="calculation-container">
+        <label style="width: 65%;">Expenses (Fees + Shipping)</label><p id="expenses">$0</p>
+        <label>Profit</label><p id="profit">$0</p>
+    </div>
   </body>
 </html>
